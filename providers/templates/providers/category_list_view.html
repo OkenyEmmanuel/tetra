@@ -1,0 +1,9 @@
+{% extends 'base.html '%}
+{% block content %}
+{% for category in services.cat.all %}
+<h3>Our Department Details</h3>
+{{category.about}}
+<br>
+<a href="{% url 'providers:descript_list' slug=category.slug service=services.slug %}"><br><button class="btn mb-4 btn-primary">See Doctor</button></a><br>
+{% endfor %}
+{% endblock %}

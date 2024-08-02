@@ -1,0 +1,59 @@
+.contin{
+    display:flex;
+}
+.rent{
+    text-align: center;
+    color:rgb(0,0,128);
+}
+form{
+    width:600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 20px;
+    margin-left: 50px;
+    background: linear-gradient(to bottom, #004ba0, #2196f3);
+    color:white;
+}
+
+fieldset{
+    border:1px solid white;
+    padding:8px;
+    margin:0;
+}
+legend{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+label{
+    display:block;
+    margin-bottom:5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="telephone"],
+textarea,
+input[type="date"]{
+    width: calc(100% - 20px);
+    padding: 6px;
+    margin-bottom:10px;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+input[type="radio"]{
+    margin-left:20px;
+}
+input[type="submit"]{
+    padding: 8px 16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+.set2{
+    object-fit: cover;
+    width:600px;
+ 
+}
+.set2 img{
+    margin-top: 50px;
+    width:700px;
+    height:700px;
+}

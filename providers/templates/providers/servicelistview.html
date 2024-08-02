@@ -1,0 +1,19 @@
+{% extends 'base.html '%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for service in services %}
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="{{ service.depimg.url }}" alt="{{ service.name }}" style="width: 200px; height: 230px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.name }}</h5>
+                    <p class="card-text">{{ service.name }}</p>
+                    <a href="{% url 'providers:category_list' slug=service.slug %}" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

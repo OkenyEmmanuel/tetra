@@ -1,0 +1,82 @@
+{% load static %}
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/third.css' %}">
+    <script>
+        <script>
+            function validateForm() {
+                var dob = new Date(document.forms["registrationForm"]["dob"].value);
+                var appointmentDate = new Date(document.forms["registrationForm"]["dob1"].value);
+        
+                var today = new Date();
+                var minDOB = new Date();
+                minDOB.setFullYear(minDOB.getFullYear() - 20); // 20 years ago from today
+        
+                if (dob > today || dob < minDOB) {
+                    alert("Please enter a valid date of birth (should be at least 20 years old and in the past).");
+                    return false;
+                }
+        
+                if (appointmentDate <= today) {
+                    alert("Please select a date of appointment in the future.");
+                    return false;
+                }
+        
+                return true;
+            }
+        </script>
+        
+    </script>
+</head>
+<body>
+    <div class="rent">
+    <h1>Requesting An Appointment</h1>
+    <h2>create an appointment with us to escape long waits and </h2>
+    <h4>Use the form below to get a phone call from a care advisor. We will call you within 1 business day.</h4>
+    <h4>You can call us at 800-525-225 whwnever you are ready. We are available Monday through Friday, 8 a.m to 6 pm</h4>
+    </div>
+    <div class="contin">
+        <div class="set1">
+            <form name="registrationForm" method="post" action="{% url 'registers' %}" onsubmit="return validateForm()">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>
+                        User personal information
+                    </legend>
+            <label for="firstname">Firstname:</label>
+            <input type="text" id="firstname" name="username"><br><br>
+            <label for="lastname">Lastname:</label>
+            <input type="text" id="lastname" name="lastname"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="telephone" >Telephone Number:</label>
+            <input type="telephone" id="tel" name="tel"><br><br>
+            <label>Enter your gender</label><br><br>
+            <input type="radio" name="gender" value="male"/>male<br>
+            <input type="radio" name="gender" value="female"/>female<br>
+            <label>Enter your date of birth</label>
+            <input type="date" name="dob"/><br>
+            <label>Enter your Address:</label>
+            <textarea name="address"></textarea><br><br>
+            <label>Please choose Date Of Appointment:</label>
+            <input type="date" name="dob1" id="lo"/><br><br>
+            <label for="appt">Please choose time of your appointment:</label>
+            <input type="time" name="dob3" id="appt"/><br><br>
+            <label>Please select reason for appointment</label><br><br>
+            <input type="radio" name="appointment" value="Medical Checkup"/>Medical Checkup<br><br>
+            <input type="radio" name="appointment" value="Doctor Appointment"/>Doctor Appointment<br><br>
+            <input type="radio" name="appointment" value="Medical Consultation"/>Medical Consultation<br><br>
+            <input type="radio" name="appointment" value="Blood Test"/>Blood Test<br><br>
+
+            <input type="submit" value="submit"/>
+                </fieldset>
+            </form>
+        </div>
+        <div class="set2">
+            <img src="{% static 'images/gb.jpg' %}">
+        </div>
+    </div>
+</body>
+</html>
